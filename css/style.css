@@ -1,0 +1,134 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+    margin: auto;
+    flex-direction: column;
+}
+
+.bombs {
+    width: 42px;
+    height: 42px;
+}
+
+#bombsLeft{
+    font-size:30px;
+}
+
+#smile {
+    height: 40px;
+    width: 40px;
+    padding-right: 8px;
+}
+
+.game {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px 0 0 0;
+    justify-content: center;
+}
+    .game>div:first-child {
+        display: flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .game > div:first-child > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+#field {
+    border-spacing: 8px;
+    display:block;
+}
+
+
+td {
+    min-width: 35px;
+    min-height: 35px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid gray;
+    position: relative;
+    transition: 0.1s;
+}
+
+.bomb {
+    background: #C42828 center no-repeat url(../img/bomb.svg);
+    background-size: 30px 30px;
+}
+
+.nearBombs {
+    text-align: center;
+    font-size: 18px;
+    color: #707070;
+    font-weight: bold;
+}
+
+.closed {
+    background-color: #BBBBBB;
+    cursor: pointer;    
+}
+
+    .closed::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #BBBBBB;
+        pointer-events: none;
+
+    }
+
+.flag::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #BBBBBB center no-repeat url(../img/flag.svg);
+    background-size: 30px 30px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.flag::after {
+    z-index: -1;
+}
+
+@media (max-width: 620px) {
+    #field td {
+        min-width: 28px;
+        min-height: 28px;
+        width: 28px;
+        height: 28px;
+    }
+    #field {
+        border-spacing: 4px;
+    }
+    .bomb {
+        background-size: 22px 22px;
+    }
+    #bombsLeft {
+        font-size: 26px;
+    }
+    .nearBombs {
+        font-size: 14px;
+    }
+    .flag::before {
+        background-size: 25px 25px;
+    }
+}
+
+
